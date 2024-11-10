@@ -1,21 +1,22 @@
 console.log("Hello World")
 
-//function getComputerChoice(Rock,Paper,Scissor) {
-//    if (number <= 33,33) return "Rock";
-//    else if (number > 33,33, number <= 66,66) return "Paper";
-//    else if (number > 66,66) return "Scissor";
-//}
+function getComputerChoice() {
+    const computerNumber = Math.random(); 
+        if (computerNumber < 0.33) {
+         return "Rock";
+    }   else if (computerNumber > 0.33 && computerNumber < 0.66) {
+         return "Paper"; 
+    }   else {
+         return "Scissor";
+    }
+}
+console.log(getComputerChoice())
 
-const computerChoice = Math.random();
-let number = (computerChoice * 100)
-console.log(number)
+function getHumanChoice() {
+    let humanChoice = window.prompt("Choose: Rock, Paper or Scissor");
 
-function getComputerChoice(number) {
-    let choice
-    if (number < 33,33) choice = "Rock"; {
-    }    if (number > 33,33 && number < 66,66) choice = "Paper"; {
-    }   if (number > 66,66) choice = "Scissor";
+
+
 }
 
-console.log(getComputerChoice())
-console.log(choice)
+console.log(getHumanChoice())
