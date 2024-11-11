@@ -10,7 +10,7 @@ function getComputerChoice() {
          return "Scissor";
     }
 }
-console.log(getComputerChoice())
+//console.log(getComputerChoice())
 
 function getHumanChoice() {
     let humanChoice = window.prompt("Choose: Rock, Paper or Scissor").toLowerCase();
@@ -23,29 +23,30 @@ function getHumanChoice() {
     }
 }
 
-console.log(getHumanChoice())
+//console.log(getHumanChoice())
 
-let computerScore = 0
-let humanScore = 0
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
 
-function playRound(humanChoice, computerChoice) {
-    if    (humanChoice === "paper" && computerChoice === "rock") ||
-    (humanChoice === "rock" && computerChoice === "scissor") ||
-    (humanChoice === "scissor" && computerChoice === "paper") } 
-    { humanScore ++;
-        return "Win!";
-    } else if {
-    (humanChoice === computerChoice);
-    return "It's a tie, another round!";
+playRound(humanSelection, computerSelection);
+
+function playGame (playRound) {
+    let computerScore = 0;
+    let humanScore = 0;
+
+    function playRound(humanChoice, computerChoice) {
+        if (humanChoice === computerChoice) {
+            return "Tie! Another round!";
+        } else if (    
+            (humanChoice === "paper" && computerChoice === "rock") ||
+            (humanChoice === "rock" && computerChoice === "scissor") ||
+            (humanChoice === "scissor" && computerChoice === "paper")
+        ) { humanScore ++;
+            return "Win!";
+        } else {
+            computerScore ++;
+            return "Dang!";
+        }
     }
-
-    else {
-        computerScore ++;
-        return "Dang!";
-    }
-  
-  const humanSelection = getHumanChoice();
-  const computerSelection = getComputerChoice();
-  
-  playRound(humanSelection, computerSelection);
-  
+  }
+console.log(getHumanChoice)
