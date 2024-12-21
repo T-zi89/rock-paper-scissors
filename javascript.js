@@ -1,52 +1,62 @@
-console.log("Hello World")
+console.log("Hello World");
+
+// Computer choice
 
 function getComputerChoice() {
-    const computerNumber = Math.random(); 
-        if (computerNumber < 0.33) {
+    let computerChoice = Math.floor(Math.random() * 3); 
+        if (computerChoice === 0) {
          return "Rock";
-    }   else if (computerNumber > 0.33 && computerNumber < 0.66) {
+    }   else if (computerChoice === 1) {
          return "Paper"; 
     }   else {
-         return "Scissor";
+         return "Scissors";
     }
 }
+
 //console.log(getComputerChoice())
 
+// Human choice
+
 function getHumanChoice() {
-    let humanChoice = window.prompt("Choose: Rock, Paper or Scissor").toLowerCase();
+    let humanChoicePrompt = window.prompt(("Choose: Rock, Paper or Scissors"));
+    let humanChoice = humanChoicePrompt.toLowerCase();
     if (humanChoice === "rock") {
         return "Rock";
     } else if (humanChoice === "paper") {
         return "Paper";
-    } else {
-        return "Scissor";
+    } else if (humanChoice === "scissors") {
+        return "Scissors";
     }
 }
 
 //console.log(getHumanChoice())
+
+let humanScore = 0
+let computerScore = 0
+
+// Play
+
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice === computerChoice) {
+        return console.log("Tie! Another round!");
+    } else if (
+              (humanChoice === "Paper" && computerChoice === "Rock") ||
+              (humanChoice === "Rock" && computerChoice === "Scissors") ||
+              (humanChoice === "Scissors" && computerChoice === "Paper") 
+            ){
+                humanScore++;
+                return console.log("You win!");       
+    } else {
+        computerScore++;
+        return console.log("You lose!");
+    }
+}            
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
 
-function playGame (playRound) {
-    let computerScore = 0;
-    let humanScore = 0;
+// Global scores (the first to get to 5 wins)
 
-    function playRound(humanChoice, computerChoice) {
-        if (humanChoice === computerChoice) {
-            return "Tie! Another round!";
-        } else if (    
-            (humanChoice === "paper" && computerChoice === "rock") ||
-            (humanChoice === "rock" && computerChoice === "scissor") ||
-            (humanChoice === "scissor" && computerChoice === "paper")
-        ) { humanScore ++;
-            return "Win!";
-        } else {
-            computerScore ++;
-            return "Dang!";
-        }
-    }
-  }
-console.log(getHumanChoice)
+console.log(humanScore, computerScore)
