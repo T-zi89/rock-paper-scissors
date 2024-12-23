@@ -39,11 +39,7 @@ function playGame() {
         let humanScore = 0;
         let computerScore = 0;
 
-        for (let i = 0; i < 5; i++)  {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-        console.log(humanScore, computerScore)
+
 
         function playRound(humanChoice, computerChoice) {
                 if (humanChoice === computerChoice) {
@@ -67,9 +63,24 @@ function playGame() {
                         computerScore++;
                         return console.log("You lose! Scissors beats Paper");
                 }
+                
+
             }
 
-        }     
+        for (let i = 0; i < 5; i++)  {
+                const humanSelection = getHumanChoice();
+                const computerSelection = getComputerChoice();
+                playRound(humanSelection, computerSelection);
+                console.log(humanScore, computerScore)
+        }    
+         
+        if (humanScore > computerScore) {
+                return console.log("You won!");
+        } else if (computerScore > humanScore) {
+                return console.log("You lose!");
+        } else {
+                return console.log("It's a draw!")
+        }
 }
 playGame()
     
