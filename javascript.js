@@ -33,13 +33,18 @@ function getHumanChoice() {
 
 
 
-// Global scores (the first to get to 5 wins)
+
 
 function playGame() {
         let humanScore = 0;
         let computerScore = 0;
 
         for (let i = 0; i < 5; i++)  {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+        console.log(humanScore, computerScore)
+
         function playRound(humanChoice, computerChoice) {
                 if (humanChoice === computerChoice) {
                         return console.log("Tie! Another round!");
@@ -63,15 +68,9 @@ function playGame() {
                         return console.log("You lose! Scissors beats Paper");
                 }
             }
-            const humanSelection = getHumanChoice();
-            const computerSelection = getComputerChoice();
-            playRound(humanSelection, computerSelection);
-            console.log(humanScore, computerScore)
- 
-        }
-  
-}    
-// Play
+
+        }     
+}
 playGame()
-
-
+    
+// Play
