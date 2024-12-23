@@ -1,7 +1,6 @@
-console.log("Hello World");
-
-// Computer choice
-
+//Welcome message
+console.log("Let's play Rock, Paper, Scissors!");
+// This function assigns to the computer a random choice between Rock, Paper and Scissors
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3); 
         if (computerChoice === 0) {
@@ -12,11 +11,8 @@ function getComputerChoice() {
          return "Scissors";
     }
 }
-
-//console.log(getComputerChoice())
-
-// Human choice
-
+// This function asks the player to choose between Rock, Paper and Scissors, the choice is not case sensitive, but it has to be typed 
+// correctly, if that's not the case, it returns to ask the player again, typing correctly
 function getHumanChoice() {
     let humanChoicePrompt = window.prompt(("Choose: Rock, Paper or Scissors"));
     let humanChoice = humanChoicePrompt.toLowerCase();
@@ -26,24 +22,21 @@ function getHumanChoice() {
         return "Paper";
     } else if (humanChoice === "scissors") {
         return "Scissors";
+    } else {
+        console.log("Please type your choice correctly");
+        return getHumanChoice();
     }
 }
-
-//console.log(getHumanChoice())
-
-
-
-
-
+// This is the main function of the Rock, Paper, Scissors game
 function playGame() {
         let humanScore = 0;
         let computerScore = 0;
-
-
-
+        let tieCount = 0;
+// This function has all the possible outcomes based on all the possible choices, also returns a + to all scores and ties variables  
         function playRound(humanChoice, computerChoice) {
                 if (humanChoice === computerChoice) {
-                        return console.log("Tie! Another round!");
+                        console.log("Tie! Another round!");
+                        return tieCount++;
                 } else if (humanChoice === "Paper" && computerChoice === "Rock") {
                         humanScore++;
                         return console.log("You win! Paper beats Rock");
@@ -63,25 +56,41 @@ function playGame() {
                         computerScore++;
                         return console.log("You lose! Scissors beats Paper");
                 }
-                
-
-            }
-
+        }
+// A loop for five rounds, displaying player and computer scores, also ties 
         for (let i = 0; i < 5; i++)  {
                 const humanSelection = getHumanChoice();
                 const computerSelection = getComputerChoice();
                 playRound(humanSelection, computerSelection);
-                console.log(humanScore, computerScore)
+                console.log("Your score: ",humanScore,"-","Computer score: ",computerScore,"-","Ties: "  ,tieCount)
         }    
-         
+// Declaring if the player won, lost or tied, all the choices return to the next function, asking the player if he wants to play again
         if (humanScore > computerScore) {
-                return console.log("You won!");
+                console.log("You won!");
+                return playAgain();
         } else if (computerScore > humanScore) {
-                return console.log("You lose!");
+                console.log("You lost!");
+                return playAgain();
         } else {
-                return console.log("It's a draw!")
+                console.log("It's a tie!");
+                return playAgain();
+        }
+// This function asks the player if he wants to play another round, if he chooses Yes, another round starts, if he chooses No, a goodbye
+// message appears, if he type anything else, the question is asked again
+        function playAgain() {
+                let askingToPlayAgain = window.prompt(("Do you want to play again? Yes/No"));
+                        if (askingToPlayAgain === "Yes") {
+                        console.log("Let's go again!");
+                        return playGame();
+                        } else if (askingToPlayAgain === "No") {
+                        return console.log("Bye");
+                        } else {
+                        console.log("Please type your choice correctly");
+                        return playAgain();
+                        }        
         }
 }
+// Play
 playGame()
     
-// Play
+
