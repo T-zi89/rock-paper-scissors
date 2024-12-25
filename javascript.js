@@ -38,23 +38,23 @@ function playGame() {
                         console.log("Tie! Another round!");
                         return tieCount++;
                 } else if (humanChoice === "Paper" && computerChoice === "Rock") {
-                        humanScore++;
-                        return console.log("You win! Paper beats Rock");
+                        console.log("You win! Paper beats Rock");
+                        return humanScore++;
                 } else if (humanChoice === "Rock" && computerChoice === "Scissors") {
-                        humanScore++;
-                        return console.log("You win! Rock beats Scissors");
+                        console.log("You win! Rock beats Scissors");
+                        return humanScore++;
                 } else if (humanChoice === "Scissors" && computerChoice === "Paper") {
-                        humanScore++;
-                        return console.log("You win! Scissors beats Paper");       
+                        console.log("You win! Scissors beats Paper"); 
+                        return humanScore++;    
                 } else if (computerChoice === "Paper" && humanChoice === "Rock") {
-                        computerScore++;
-                        return console.log("You lose! Paper beats Rock");
+                        console.log("You lose! Paper beats Rock");
+                        return computerScore++;
                 } else if (computerChoice === "Rock" && humanChoice === "Scissors") {
-                        computerScoreScore++;
-                        return console.log("You lose! Rock beats Scissors");
+                        console.log("You lose! Rock beats Scissors");
+                        return computerScore++;
                 } else if (computerChoice === "Scissors" && humanChoice === "Paper") {
-                        computerScore++;
-                        return console.log("You lose! Scissors beats Paper");
+                        console.log("You lose! Scissors beats Paper")
+                        return computerScore++;
                 }
         }
 // A loop for five rounds, displaying player and computer scores, also ties 
