@@ -1,1 +1,1 @@
-Rock, Paper, Scissor project
+Rock, Paper, Scissors project
