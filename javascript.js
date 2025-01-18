@@ -58,12 +58,12 @@ function playGame() {
                 }
         }
 // A loop for five rounds, displaying player and computer scores, also ties 
-        for (let i = 0; i < 5; i++)  {
+        /* for (let i = 0; i < 5; i++)  {
                 const humanSelection = getHumanChoice();
                 const computerSelection = getComputerChoice();
                 playRound(humanSelection, computerSelection);
                 console.log("Your score: ",humanScore,"-","Computer score: ",computerScore,"-","Ties: "  ,tieCount)
-        }    
+        }     */
 // Declaring if the player won, lost or tied, all the choices return to the next function, asking the player if he wants to play again
         if (humanScore > computerScore) {
                 console.log("You won!");
@@ -91,6 +91,19 @@ function playGame() {
         }
 }
 // Play
-playGame()
+//playGame()
+
+const container = document.querySelector("#container");
+const choiceSelectionDiv = document.createElement("div");
+choiceSelectionDiv.classList.add("choiceSelectionDiv");
+choiceSelectionDiv.textContent = "Make your choice";
+container.appendChild(choiceSelectionDiv);
+const buttons = querySelector("button");
+buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+                alert(button.id);
+        });
+})
+
     
 
