@@ -96,14 +96,24 @@ function playGame() {
 const container = document.querySelector("#container");
 const choiceSelectionDiv = document.createElement("div");
 choiceSelectionDiv.classList.add("choiceSelectionDiv");
-choiceSelectionDiv.textContent = "Make your choice";
-container.appendChild(choiceSelectionDiv);
-const buttons = querySelector("button");
-buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-                alert(button.id);
-        });
-})
+choiceSelectionDiv.textContent = "Make your choice: ";
 
+const rock = document.createElement("button");
+const paper = document.createElement("button");
+const scissors = document.createElement("button");
+rock.textContent = "Rock";
+paper.textContent = "Paper";
+scissors.textContent = "Scissors";
+choiceSelectionDiv.appendChild(rock);
+choiceSelectionDiv.appendChild(paper);
+choiceSelectionDiv.appendChild(scissors);
+container.appendChild(choiceSelectionDiv);
+
+
+
+/* rock.addEventListener("click", () => {
+        alert("Rock");
+});
+ */
     
 
