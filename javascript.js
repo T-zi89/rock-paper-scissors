@@ -96,13 +96,18 @@ const container = document.querySelector("#container");
 const choiceSelectionDiv = document.createElement("div");
 choiceSelectionDiv.classList.add("choiceSelectionDiv");
 choiceSelectionDiv.textContent = "Make your choice: ";
-const choiceDisplayDiv = document.createElement("div");
-choiceDisplayDiv.classList.add("choiceDisplayDiv");
-choiceDisplayDiv.textContent = "Choices: ";
-
+const choicesButtons = document.createElement("div");
+choicesButtons.classList.add("choicesButtons");
 const rockBtn = document.createElement("button");
 const paperBtn = document.createElement("button");
 const scissorsBtn = document.createElement("button");
+
+const choiceDisplayDiv = document.createElement("div");
+choiceDisplayDiv.classList.add("choiceDisplayDiv");
+const choicesText = document.createElement("p");
+choicesText.textContent = "Choices: "
+choicesText.style.color = "blue";
+choicesText.style.fontWeight = "900";
 
 const playerChoiceDisplay = document.createElement("p");
 const computerChoiceDisplay = document.createElement("p");
@@ -116,7 +121,8 @@ const tieCountDisplay = document.createElement("p");
 rockBtn.textContent = "👊";
 paperBtn.textContent = "✋";
 scissorsBtn.textContent = "🖖";
-
+roundWinner.style.cssText = "color: blue";
+roundWinner.style.fontWeight = "900";
 playerChoiceDisplay.textContent = `Player: `;
 computerChoiceDisplay.textContent = `Computer: `;
 roundWinner.textContent = `Round winner: ${whoWon}`;
@@ -125,9 +131,9 @@ playerScoreDisplay.textContent = `Player score: ${humanScore}`;
 computerScoreDisplay.textContent = `Computer score: ${computerScore}`;
 tieCountDisplay.textContent = `Ties: ${tieCount}`;
 
-choiceSelectionDiv.appendChild(rockBtn);
-choiceSelectionDiv.appendChild(paperBtn);
-choiceSelectionDiv.appendChild(scissorsBtn);
+choicesButtons.appendChild(rockBtn);
+choicesButtons.appendChild(paperBtn);
+choicesButtons.appendChild(scissorsBtn);
 
 choiceDisplayDiv.appendChild(playerChoiceDisplay);
 choiceDisplayDiv.appendChild(computerChoiceDisplay);
@@ -136,6 +142,8 @@ scoresDiv.appendChild(roundWinner);
 scoresDiv.appendChild(playerScoreDisplay);
 scoresDiv.appendChild(computerScoreDisplay);
 scoresDiv.appendChild(tieCountDisplay);
+choiceSelectionDiv.appendChild(choicesButtons);
+choiceSelectionDiv.appendChild(choicesText);
 container.appendChild(choiceSelectionDiv);
 container.appendChild(choiceDisplayDiv);
 container.appendChild(scoresDiv);

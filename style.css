@@ -1,18 +1,34 @@
 body {
     background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 button {
-    border-radius: 50%;
-    border: solid; 
+    border-radius: 10%;
+    border: solid;
+    margin: 5px;
 }
 
 .choiceSelectionDiv {
     display: flex;
+    flex-direction: column;
     text-align: center;
+}
+
+.choicesButtons {
+    margin: 20px;
 }
 
 .choiceDisplayDiv {
     display: flex;
-    
+    flex-direction: column;
+    align-items: center;
+}
+
+.scoresDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
