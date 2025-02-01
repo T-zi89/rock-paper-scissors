@@ -96,6 +96,9 @@ const container = document.querySelector("#container");
 const choiceSelectionDiv = document.createElement("div");
 choiceSelectionDiv.classList.add("choiceSelectionDiv");
 choiceSelectionDiv.textContent = "Make your choice: ";
+const choiceDisplayDiv = document.createElement("div");
+choiceDisplayDiv.classList.add("choiceDisplayDiv");
+choiceDisplayDiv.textContent = "Choices: ";
 
 const rockBtn = document.createElement("button");
 const paperBtn = document.createElement("button");
@@ -103,8 +106,9 @@ const scissorsBtn = document.createElement("button");
 
 const playerChoiceDisplay = document.createElement("p");
 const computerChoiceDisplay = document.createElement("p");
+const scoresDiv = document.createElement("div");
+scoresDiv.classList.add("scoresDiv");
 const roundWinner = document.createElement("p");
-
 const playerScoreDisplay = document.createElement("p");
 const computerScoreDisplay = document.createElement("p");
 const tieCountDisplay = document.createElement("p");
@@ -124,13 +128,30 @@ tieCountDisplay.textContent = `Ties: ${tieCount}`;
 choiceSelectionDiv.appendChild(rockBtn);
 choiceSelectionDiv.appendChild(paperBtn);
 choiceSelectionDiv.appendChild(scissorsBtn);
-choiceSelectionDiv.appendChild(playerChoiceDisplay);
-choiceSelectionDiv.appendChild(computerChoiceDisplay);
-choiceSelectionDiv.appendChild(roundWinner);
-choiceSelectionDiv.appendChild(playerScoreDisplay);
-choiceSelectionDiv.appendChild(computerScoreDisplay);
-choiceSelectionDiv.appendChild(tieCountDisplay);
+
+choiceDisplayDiv.appendChild(playerChoiceDisplay);
+choiceDisplayDiv.appendChild(computerChoiceDisplay);
+
+scoresDiv.appendChild(roundWinner);
+scoresDiv.appendChild(playerScoreDisplay);
+scoresDiv.appendChild(computerScoreDisplay);
+scoresDiv.appendChild(tieCountDisplay);
 container.appendChild(choiceSelectionDiv);
+container.appendChild(choiceDisplayDiv);
+container.appendChild(scoresDiv);
+
+rockBtn.style.fontSize = "100px";
+paperBtn.style.fontSize = "100px";
+scissorsBtn.style.fontSize = "100px";
+rockBtn.style.backgroundColor = "blue";
+paperBtn.style.backgroundColor = "blue";
+scissorsBtn.style.backgroundColor = "blue";
+
+/* let buttons = document.querySelectorAll("button");
+for (let i = 0; i < buttons.lenght; i++) {
+        buttons[i].style.backgroundColor = "blue";
+}*/
+
 
 rockBtn.addEventListener("click", () => {
         playRound(choices[0]);
