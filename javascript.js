@@ -1,11 +1,20 @@
 console.log("Let's play Rock, Paper, Scissors!");
 
+// This array displays the possible choices to be used by the computerChoice
+// and as values of by the buttons clicked by the player with the event listeners
 const choices = ["Rock", "Paper", "Scissors"]
+
+// Declared score global variables to be updated by the playRound function
 let humanScore = 0;
 let computerScore = 0;
 let tieCount = 0;
 let whoWon = "";
 
+// The main function of the game, take the humChoice as an argument and check the outcome
+// against the computerChoice, updates the scores global variables and also
+// updates the text content of the roundWinner and Player, Computer and Ties scores displayed
+// This function also stops when one of the players get to 5 wins and returns to another
+// function called playAgain
 function playRound(humChoice) {
         const computerChoice = choices[Math.floor(Math.random() * 3)]; 
         let result = "";
@@ -66,7 +75,8 @@ function playRound(humChoice) {
                 }
         }
 
-
+// This function asks the player if he wants to play another game, if the answer is Yes it resets all the text
+// displayed on the page, if the answer is No, it displays a Bye alert
 function playAgain() {
         const newPlay = window.prompt("Do you want to play again? Yes or No")
         if (newPlay == "Yes") {
@@ -92,10 +102,10 @@ function playAgain() {
         }
 }
 
+// Elements created
 const container = document.querySelector("#container");
 const choiceSelectionDiv = document.createElement("div");
 choiceSelectionDiv.classList.add("choiceSelectionDiv");
-choiceSelectionDiv.textContent = "Make your choice: ";
 const choicesButtons = document.createElement("div");
 choicesButtons.classList.add("choicesButtons");
 const rockBtn = document.createElement("button");
@@ -105,32 +115,30 @@ const scissorsBtn = document.createElement("button");
 const choiceDisplayDiv = document.createElement("div");
 choiceDisplayDiv.classList.add("choiceDisplayDiv");
 const choicesText = document.createElement("p");
-choicesText.textContent = "Choices: "
-choicesText.style.color = "blue";
-choicesText.style.fontWeight = "900";
-
 const playerChoiceDisplay = document.createElement("p");
 const computerChoiceDisplay = document.createElement("p");
 const scoresDiv = document.createElement("div");
 scoresDiv.classList.add("scoresDiv");
+
 const roundWinner = document.createElement("p");
 const playerScoreDisplay = document.createElement("p");
 const computerScoreDisplay = document.createElement("p");
 const tieCountDisplay = document.createElement("p");
 
-rockBtn.textContent = "👊";
-paperBtn.textContent = "✋";
-scissorsBtn.textContent = "🖖";
-roundWinner.style.cssText = "color: blue";
-roundWinner.style.fontWeight = "900";
+// Updated the text content of the elements created
+choiceSelectionDiv.textContent = "Make your choice: ";
+choicesText.textContent = "Choices: ";
 playerChoiceDisplay.textContent = `Player: `;
 computerChoiceDisplay.textContent = `Computer: `;
-roundWinner.textContent = `Round winner: ${whoWon}`;
 
+// Updated the text content of other elements, this time by using as a placeholder
+// the value of the variables previously declared as the get updated
+roundWinner.textContent = `Round winner: ${whoWon}`;
 playerScoreDisplay.textContent = `Player score: ${humanScore}`;
 computerScoreDisplay.textContent = `Computer score: ${computerScore}`;
 tieCountDisplay.textContent = `Ties: ${tieCount}`;
 
+// The DOM is structured
 choicesButtons.appendChild(rockBtn);
 choicesButtons.appendChild(paperBtn);
 choicesButtons.appendChild(scissorsBtn);
@@ -148,19 +156,24 @@ container.appendChild(choiceSelectionDiv);
 container.appendChild(choiceDisplayDiv);
 container.appendChild(scoresDiv);
 
+// Styling the elements
+rockBtn.textContent = "👊";
+paperBtn.textContent = "✋";
+scissorsBtn.textContent = "🖖";
 rockBtn.style.fontSize = "100px";
 paperBtn.style.fontSize = "100px";
 scissorsBtn.style.fontSize = "100px";
-rockBtn.style.backgroundColor = "blue";
-paperBtn.style.backgroundColor = "blue";
-scissorsBtn.style.backgroundColor = "blue";
+choicesText.style.color = "blue";
+choicesText.style.fontWeight = "900";
+playerChoiceDisplay.style.color = "green";
+computerChoiceDisplay.style.color = "red";
+playerScoreDisplay.style.color = "green";
+computerScoreDisplay.style.color = "red";
+roundWinner.style.cssText = "color: blue";
+roundWinner.style.fontWeight = "900";
 
-/* let buttons = document.querySelectorAll("button");
-for (let i = 0; i < buttons.lenght; i++) {
-        buttons[i].style.backgroundColor = "blue";
-}*/
-
-
+// Event listeners are added to the buttons as they are clicked, they take 
+// the choice from the array at the start and pass it as an argument for the playRound function
 rockBtn.addEventListener("click", () => {
         playRound(choices[0]);
 });
